@@ -110,7 +110,7 @@ html, body {
 .authors .affil {
   display: block;
   margin-top: 2mm;
-  font-size: 16pt;
+  font-size: 18pt;
   color: var(--text-subtle);
 }
 
@@ -145,7 +145,7 @@ html, body {
   flex: 1;
   text-align: right;
   font-family: var(--font-body);
-  font-size: 16pt;
+  font-size: 18pt;
   color: var(--text-on-accent);
   line-height: 1.3;
   opacity: 0.8;
@@ -243,17 +243,17 @@ html, body {
 .person figcaption strong {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 17pt;
+  font-size: 19pt;
   color: var(--text);
 }
 .person-affil {
   font-family: var(--font-body);
-  font-size: 14pt;
+  font-size: 16pt;
   color: var(--text-subtle);
 }
 .person-role {
   font-family: var(--font-body);
-  font-size: 14pt;
+  font-size: 16pt;
   color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.2pt;
@@ -315,18 +315,20 @@ html, body {
 .why-stat p {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 17pt;
+  font-size: 19pt;
   line-height: 1.35;
   color: var(--text-on-accent);
+  font-weight: 600;
 }
-.why-stat-lavender p, .why-stat-lavender .why-num { color: var(--text); }
+/* Dark text on lavender too — better contrast than white. */
 .why-cite {
   margin-top: auto;
   font-family: var(--font-body);
-  font-size: 12pt;
+  font-size: 15pt;
   letter-spacing: 0.4pt;
   text-transform: uppercase;
-  opacity: 0.75;
+  opacity: 0.85;
+  font-weight: 600;
 }
 .why-mechanism {
   background: var(--bg-elevated);
@@ -497,15 +499,14 @@ html, body {
   margin-top: 2mm;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 18pt;
+  font-size: 20pt;
   line-height: 1.2;
   color: var(--text-on-accent);
 }
 .tile-1, .tile-3, .tile-5 { background: var(--brand); }
 .tile-2, .tile-4, .tile-6 { background: var(--accent); }
-.tile-1 .tile-pct, .tile-1 .tile-lbl,
-.tile-3 .tile-pct, .tile-3 .tile-lbl,
-.tile-5 .tile-pct, .tile-5 .tile-lbl { color: var(--text); }
+/* Dark text on both: white-on-lavender is ~1.5:1, dark-on-lavender ~3.7:1
+   (passes WCAG AA Large at 18pt+). */
 
 /* ============== INTERACTIVE: MAP + STICKIES ============== */
 .interactive {
@@ -562,15 +563,14 @@ html, body {
 }
 .map-frame-uk img { object-position: center; }
 .map-frame-eu { height: 200mm; }
-/* EU map: fill the box with only a TINY crop. The SVG viewBox is tightened
-   to a ~1.85 aspect close to the container's, so object-fit: cover trims
-   just the very edges (cut some far-north Norway + far-south Spain). */
+/* EU map: show the WHOLE map (contain). The new SVG is portrait-ish; it
+   sits centered within the frame with breathing room on the sides. */
 .map-frame-eu img {
   width: 100%;
   height: 100%;
   max-width: none;
   max-height: none;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .legend {
@@ -628,8 +628,8 @@ html, body {
 }
 .funded-label {
   font-family: var(--font-body);
-  font-size: 11pt;
-  color: var(--text-subtle);
+  font-size: 14pt;
+  color: var(--text-muted);
   letter-spacing: 0.6pt;
   text-transform: uppercase;
 }
@@ -672,8 +672,8 @@ html, body {
 }
 .qr-url {
   font-family: var(--font-body);
-  font-size: 10pt;
-  color: var(--text-subtle);
+  font-size: 13pt;
+  color: var(--text-muted);
 }
 .footer-event {
   display: flex;
