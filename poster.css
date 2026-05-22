@@ -1,0 +1,716 @@
+/* ============================================================
+   PeerLadder poster – A0 portrait (841 × 1189 mm)
+   Dark theme mirroring peerladder.elixiruknode.org colour tokens.
+   Standalone HTML/CSS, no Jekyll, no Bootstrap.
+   Print: Chrome → ⌘P → Paper 841×1189 mm, Background graphics ON.
+   ============================================================ */
+
+@page { size: A0 portrait; margin: 0; }
+
+:root {
+  /* Pulled from the live site's :root variables */
+  --bg:                 rgb(4, 26, 22);       /* deep green-black */
+  --bg-elevated:        rgb(1, 64, 52);
+  --bg-elevated-lifted: rgb(1, 79, 65);
+  --text:               rgb(240, 238, 249);   /* lavender-white */
+  --text-muted:         rgba(240, 238, 249, 0.70);
+  --text-subtle:        rgba(240, 238, 249, 0.50);
+  --brand:              rgb(150, 136, 242);   /* lavender */
+  --brand-soft:         rgba(150, 136, 242, 0.10);
+  --brand-soft-strong:  rgba(150, 136, 242, 0.30);
+  --accent:             rgb(245, 200, 66);    /* yellow */
+  --accent-soft:        rgba(245, 200, 66, 0.10);
+  --text-on-accent:     rgb(1, 64, 52);
+  --border:             rgba(150, 136, 242, 0.18);
+  --border-strong:      rgba(150, 136, 242, 0.32);
+
+  --sticky-yellow: #fff7a8;
+  --sticky-pink:   #ffc9d6;
+  --sticky-green:  #c8f0c0;
+  --sticky-blue:   #c3e0ff;
+
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ============== POSTER SHEET ============== */
+.poster {
+  width: 841mm;
+  height: 1189mm;
+  margin: 0 auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  font-size: 20pt;
+  line-height: 1.4;
+  overflow: hidden;
+  padding: 14mm 18mm 10mm;
+  gap: 8mm;
+}
+
+/* ============== HEADER (logo + title + authors) ============== */
+.poster-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14mm;
+  padding-bottom: 6mm;
+  border-bottom: 0.5mm solid var(--border);
+}
+.brand-logo {
+  width: 80mm;
+  height: auto;
+  flex-shrink: 0;
+}
+.header-text { flex: 1; }
+.header-text h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 110pt;
+  line-height: 0.95;
+  letter-spacing: -2pt;
+  margin: 0 0 4mm;
+  color: var(--brand);
+}
+.subtitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28pt;
+  line-height: 1.15;
+  margin: 0 0 5mm;
+  color: var(--text);
+}
+.authors {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 22pt;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.authors sup {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 0.2em;
+}
+.authors strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.authors .affil {
+  display: block;
+  margin-top: 2mm;
+  font-size: 16pt;
+  color: var(--text-subtle);
+}
+
+/* ============== ELEAD CALLOUT BANNER ============== */
+.elead-banner {
+  display: flex;
+  align-items: baseline;
+  gap: 8mm;
+  padding: 8mm 16mm;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  border-radius: 4mm;
+  margin-bottom: 4mm;
+}
+.elead-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26pt;
+  color: var(--text-on-accent);
+  letter-spacing: -0.3pt;
+  text-transform: lowercase;
+}
+.elead-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 56pt;
+  line-height: 1;
+  color: var(--text-on-accent);
+  letter-spacing: 2pt;
+}
+.elead-tag {
+  flex: 1;
+  text-align: right;
+  font-family: var(--font-body);
+  font-size: 16pt;
+  color: var(--text-on-accent);
+  line-height: 1.3;
+  opacity: 0.8;
+}
+
+/* ============== HERO / INTRO ============== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14mm;
+  align-items: center;
+  background: var(--bg-elevated);
+  border-radius: 6mm;
+  padding: 10mm 14mm;
+}
+.hero-lede {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28pt;
+  line-height: 1.2;
+  margin: 0 0 5mm;
+  color: var(--text);
+}
+.hero-lede em {
+  font-style: normal;
+  color: var(--accent);
+}
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+.hero-bullets li {
+  position: relative;
+  padding-left: 11mm;
+  font-family: var(--font-body);
+  font-size: 22pt;
+  color: var(--text);
+  line-height: 1.35;
+}
+.hero-bullets li::before {
+  content: "↑";
+  position: absolute;
+  left: 0;
+  top: -0.2mm;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22pt;
+  color: var(--brand);
+}
+/* --- Hero team row (4 co-leads as headshots) --- */
+.hero-team {
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+.team-h {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 18pt;
+  color: var(--brand);
+  margin: 0;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+}
+.team-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6mm 8mm;
+}
+.person {
+  display: flex;
+  align-items: center;
+  gap: 5mm;
+  margin: 0;
+}
+.person img {
+  width: 28mm;
+  height: 28mm;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.6mm solid var(--brand);
+  background: var(--bg-elevated-lifted);
+  flex-shrink: 0;
+}
+.person figcaption {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 0.5mm;
+}
+.person figcaption strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17pt;
+  color: var(--text);
+}
+.person-affil {
+  font-family: var(--font-body);
+  font-size: 14pt;
+  color: var(--text-subtle);
+}
+.person-role {
+  font-family: var(--font-body);
+  font-size: 14pt;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.2pt;
+}
+.team-h em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* ============== SECTION HEADINGS ============== */
+.section-h {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 42pt;
+  line-height: 1.1;
+  letter-spacing: -0.5pt;
+  margin: 0 0 4mm;
+  color: var(--text);
+}
+.section-h em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+}
+.section-intro {
+  font-family: var(--font-body);
+  font-size: 22pt;
+  color: var(--text-muted);
+  margin: 0 0 8mm;
+  line-height: 1.4;
+}
+.section-intro strong { color: var(--text); }
+
+/* ============== WHY IT MATTERS ============== */
+.why { padding: 2mm 0; }
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 6mm;
+  margin-top: 4mm;
+}
+.why-stat {
+  border-radius: 4mm;
+  padding: 8mm 9mm;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+.why-stat-lavender { background: var(--brand); color: var(--text-on-accent); }
+.why-stat-yellow   { background: var(--accent); color: var(--text-on-accent); }
+.why-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 92pt;
+  line-height: 0.95;
+  letter-spacing: -2.5pt;
+  color: var(--text-on-accent);
+}
+.why-stat p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17pt;
+  line-height: 1.35;
+  color: var(--text-on-accent);
+}
+.why-stat-lavender p, .why-stat-lavender .why-num { color: var(--text); }
+.why-cite {
+  margin-top: auto;
+  font-family: var(--font-body);
+  font-size: 12pt;
+  letter-spacing: 0.4pt;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.why-mechanism {
+  background: var(--bg-elevated);
+  border: 0.4mm solid var(--border);
+  border-radius: 4mm;
+  padding: 8mm 9mm;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+.why-mechanism h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22pt;
+  margin: 0;
+  color: var(--brand);
+}
+.why-mechanism h3 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.why-mechanism p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16pt;
+  line-height: 1.4;
+  color: var(--text);
+}
+.why-pull {
+  margin-top: 2mm !important;
+  padding: 4mm 5mm;
+  border-left: 2mm solid var(--accent);
+  background: rgba(245, 200, 66, 0.06);
+  border-radius: 0 2mm 2mm 0;
+  font-size: 16pt !important;
+}
+.why-pull strong { color: var(--accent); }
+
+/* ============== THE LADDER (3 RUNGS) ============== */
+.ladder { padding: 4mm 0; }
+.rungs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8mm;
+  align-items: stretch;
+}
+.rung {
+  background: var(--bg-elevated);
+  border: 0.4mm solid var(--border);
+  border-top: 3mm solid var(--brand);
+  border-radius: 4mm;
+  padding: 6mm 7mm 7mm;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  position: relative;
+}
+.rung-num {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 42pt;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 2mm;
+}
+.rung h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24pt;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--text);
+}
+.rung p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 22pt;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.ol-ls {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+/* ============== COHORT ============== */
+.cohort { padding: 2mm 0; }
+.cohort-lede {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24pt;
+  color: var(--text);
+  margin: 0 0 5mm;
+}
+.cohort-lede strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.cohort-grid {
+  display: grid;
+  /* Stats column = width of 2 rungs above; UK column = width of 1 rung */
+  grid-template-columns: 2fr 1fr;
+  gap: 8mm;
+  align-items: start;
+}
+.stats-col { display: flex; flex-direction: column; gap: 6mm; }
+.stats-col h3,
+.stats-col .roles-h {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 20pt;
+  margin: 0 0 2mm;
+  color: var(--brand);
+}
+.stats-col .roles-h { margin-top: 4mm; }
+.roles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.roles li {
+  position: relative;
+  padding-left: 8mm;
+  font-family: var(--font-body);
+  font-size: 22pt;
+  color: var(--text);
+  line-height: 1.35;
+  padding-top: 2mm;
+  padding-bottom: 2mm;
+  border-bottom: 0.3mm solid var(--border);
+}
+.roles li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 1mm;
+  color: var(--brand);
+  font-weight: 700;
+}
+.roles li:last-child { border-bottom: none; }
+
+/* Stat tiles – compact 3×2 grid of equal-size blocks, alternating colours */
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4mm;
+  margin-top: 2mm;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6mm 5mm;
+  border-radius: 3mm;
+  font-family: var(--font-display);
+  aspect-ratio: 3 / 1;
+}
+.tile-pct {
+  font-weight: 500;
+  font-size: 56pt;
+  line-height: 1;
+  color: var(--text-on-accent);
+}
+.tile-lbl {
+  margin-top: 2mm;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--text-on-accent);
+}
+.tile-1, .tile-3, .tile-5 { background: var(--brand); }
+.tile-2, .tile-4, .tile-6 { background: var(--accent); }
+.tile-1 .tile-pct, .tile-1 .tile-lbl,
+.tile-3 .tile-pct, .tile-3 .tile-lbl,
+.tile-5 .tile-pct, .tile-5 .tile-lbl { color: var(--text); }
+
+/* ============== INTERACTIVE: MAP + STICKIES ============== */
+.interactive {
+  background: var(--bg-elevated);
+  border-radius: 6mm;
+  padding: 8mm 12mm;
+}
+.interactive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14mm;
+  align-items: start;
+  height: 100%;
+}
+
+/* Map columns (UK pixel-map and EU nodes) */
+.map-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;     /* fill the grid cell so the frame inside also fills */
+  min-width: 0;
+}
+.map-frame {
+  width: 100%;     /* span the full column width — its right edge sits at
+                      the right edge of the cohort section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 0.4mm solid var(--border);
+  border-radius: 4mm;
+  padding: 4mm;
+  margin-top: 2mm;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.map-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+/* Fixed (not min) heights — keeps each map firmly bounded so it can't
+   blow up its container. The image fits within via object-fit. */
+.map-frame-uk {
+  height: 250mm;
+  /* No visual frame — the UK silhouette sits directly on the poster bg. */
+  background: transparent;
+  border: none;
+  padding: 0;
+  justify-content: center;
+}
+.map-frame-uk img { object-position: center; }
+.map-frame-eu { height: 200mm; }
+/* EU map: fill the box with only a TINY crop. The SVG viewBox is tightened
+   to a ~1.85 aspect close to the container's, so object-fit: cover trims
+   just the very edges (cut some far-north Norway + far-south Spain). */
+.map-frame-eu img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+  margin-top: 6mm;
+  font-family: var(--font-body);
+  font-size: 18pt;
+}
+.legend-item { display: flex; align-items: center; gap: 4mm; }
+.dot {
+  display: inline-block;
+  width: 9mm;
+  height: 9mm;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0.4mm rgba(0,0,0,.25);
+  flex-shrink: 0;
+}
+.dot-cohort   { background: var(--accent); }
+.dot-interest { background: var(--brand); }
+
+/* "What was your leadership barrier?" panel — empty zone for physical post-its */
+.missing-col { display: flex; flex-direction: column; }
+.post-it-zone {
+  flex: 1;
+  min-height: 150mm;
+  margin-top: 2mm;
+  border: 1mm dashed var(--border-strong);
+  border-radius: 4mm;
+  background: rgba(150, 136, 242, 0.03);
+}
+
+/* ============== FOOTER ============== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14mm;
+  padding-top: 8mm;
+  border-top: 0.5mm solid var(--border);
+}
+/* Footer: [funded + supported] | partners (center) | QR (right) */
+.footer-funded {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  flex-shrink: 0;
+}
+.funded-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1mm;
+}
+.funded-label {
+  font-family: var(--font-body);
+  font-size: 11pt;
+  color: var(--text-subtle);
+  letter-spacing: 0.6pt;
+  text-transform: uppercase;
+}
+.funded-logo {
+  height: 18mm;
+  width: auto;
+}
+.footer-partners {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3mm;
+}
+.partner-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10mm;
+}
+.partner-logo {
+  height: 22mm;
+  width: auto;
+  max-width: 70mm;
+  object-fit: contain;
+}
+.footer-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5mm;
+  flex-shrink: 0;
+}
+.qr-img {
+  width: 38mm;
+  height: 38mm;
+  background: #fff;
+  padding: 1.5mm;
+  border-radius: 1mm;
+}
+.qr-url {
+  font-family: var(--font-body);
+  font-size: 10pt;
+  color: var(--text-subtle);
+}
+.footer-event {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  font-family: var(--font-body);
+  font-size: 17pt;
+  color: var(--text-muted);
+}
+.footer-event strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+.event-pin {
+  font-size: 22pt;
+  color: var(--accent);
+}
+
+/* ============== SCREEN PREVIEW (auto-fit script wraps in .poster-stage) ============== */
+@media screen {
+  html, body {
+    margin: 0;
+    background: #111;
+  }
+  body {
+    box-sizing: border-box;
+    padding: 16px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .poster-stage {
+    flex-shrink: 0;
+  }
+  .poster {
+    transform-origin: top left;
+    box-shadow: 0 6px 30px rgba(0,0,0,.45);
+  }
+}

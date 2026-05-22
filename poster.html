@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PeerLadder – All Hands 2026 poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="poster.css">
+  <script>
+    function fitPosterToViewport() {
+      if (window.matchMedia('print').matches) return;
+      var stage = document.querySelector('.poster-stage');
+      var p     = document.querySelector('.poster');
+      if (!stage || !p) return;
+      p.style.transform = 'none';
+      stage.style.width = '';
+      stage.style.height = '';
+      var w = p.offsetWidth, h = p.offsetHeight;
+      var pad = 32;
+      var s = Math.min((window.innerHeight - pad) / h, 1);
+      p.style.transform = 'scale(' + s + ')';
+      stage.style.width  = (s * w) + 'px';
+      stage.style.height = (s * h) + 'px';
+    }
+    function clearPosterScale() {
+      var stage = document.querySelector('.poster-stage');
+      var p     = document.querySelector('.poster');
+      if (p) p.style.transform = 'none';
+      if (stage) { stage.style.width = ''; stage.style.height = ''; }
+    }
+    window.addEventListener('DOMContentLoaded', fitPosterToViewport);
+    window.addEventListener('beforeprint', clearPosterScale);
+    window.addEventListener('afterprint', fitPosterToViewport);
+  </script>
+</head>
+<body>
+
+<div class="poster-stage">
+<section class="poster">
+
+  <!-- ===== HEADER ===== -->
+  <header class="poster-header">
+    <img class="brand-logo" src="assets/img/logos/peer-ladder-lavender.svg" alt="PeerLadder">
+    <div class="header-text">
+      <h1>PeerLadder</h1>
+      <p class="subtitle">A national peer-mentoring initiative supporting underrepresented dRTP leaders</p>
+      <p class="authors">
+        <strong>Saskia Lawson-Tovey</strong><sup>1</sup>,
+        <strong>Xenia Perez-Sitja</strong><sup>2</sup>,
+        <strong>Sara Villa</strong><sup>3</sup>,
+        <strong>Carole Goble</strong><sup>1</sup>
+        <span class="affil"><sup>1</sup>University of Manchester · <sup>2</sup>Earlham Institute · <sup>3</sup>OLS</span>
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== ELEAD CALLOUT BANNER ===== -->
+  <aside class="elead-banner">
+    <span class="elead-eyebrow">Inspired by</span>
+    <span class="elead-name">ELEAD</span>
+    <span class="elead-tag">ELIXIR Leadership programme – the team behind PeerLadder are all ELEAD alumni</span>
+  </aside>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-lede">PeerLadder is a new peer-mentoring initiative in the UK.</p>
+      <ul class="hero-bullets">
+        <li>Supporting leadership development</li>
+        <li>Empowering underrepresented digital Research Technical Professionals (dRTPs)</li>
+        <li>Building confidence, community, and inclusive leadership</li>
+      </ul>
+    </div>
+    <div class="hero-team">
+      <h3 class="team-h">The team</h3>
+      <div class="team-row">
+        <figure class="person">
+          <img src="assets/img/avatars/saskia-lawson-tovey.webp" alt="">
+          <figcaption>
+            <strong>Saskia Lawson-Tovey</strong>
+            <span class="person-affil">University of Manchester</span>
+            <span class="person-role">PI · ELEAD cohort 2</span>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <img src="assets/img/avatars/xenia-perez-sitja.jpeg" alt="">
+          <figcaption>
+            <strong>Xenia Perez-Sitja</strong>
+            <span class="person-affil">Earlham Institute</span>
+            <span class="person-role">ELEAD cohort 1 · co-lead cohort 2</span>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <img src="assets/img/avatars/sara-villa.jpg" alt="">
+          <figcaption>
+            <strong>Sara Villa</strong>
+            <span class="person-affil">OLS</span>
+            <span class="person-role">Co-lead · facilitator</span>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <img src="assets/img/avatars/carole-goble.webp" alt="">
+          <figcaption>
+            <strong>Carole Goble</strong>
+            <span class="person-affil">University of Manchester</span>
+            <span class="person-role">Mentor · ELEAD cohorts 1 &amp; 2</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY IT MATTERS ===== -->
+  <section class="why">
+    <h2 class="section-h">Why it matters</h2>
+    <p class="section-intro">Diverse teams outperform – <strong>but only when people feel safe enough to speak</strong>. PeerLadder is built on both findings.</p>
+    <div class="why-grid">
+      <article class="why-stat why-stat-lavender">
+        <span class="why-num">80%</span>
+        <p>of senior leadership roles in research-adjacent fields are held by white men. Women hold just <strong>15%</strong> of managing-director roles globally.</p>
+        <span class="why-cite">McKinsey &amp; Company (2023)</span>
+      </article>
+      <article class="why-stat why-stat-yellow">
+        <span class="why-num">+121%</span>
+        <p>more patent citations from engineering teams with higher diversity, and <strong>+19%</strong> more revenue – evidence that diverse teams drive research-technical innovation.</p>
+        <span class="why-cite">Royal Academy of Engineering (2024) · BSA / APPG on Diversity &amp; Inclusion in STEM (2025)</span>
+      </article>
+      <article class="why-mechanism">
+        <h3>The mechanism: <em>psychological safety</em></h3>
+        <p>Hiring people from underrepresented groups doesn't change outcomes on its own. They have to <strong>feel safe to speak</strong>, disagree, and admit uncertainty.</p>
+        <p>Amy Edmondson (Harvard Business School) calls this <em>psychological safety</em> – the variable that makes diversity work.</p>
+        <p class="why-pull">Google's <strong>Project Aristotle</strong> studied 180 teams and found psychological safety to be the <strong>#1 factor</strong> distinguishing high-performing teams.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== THE LADDER (3 STEPS) ===== -->
+  <section class="ladder">
+    <h2 class="section-h">The three rungs</h2>
+    <div class="rungs">
+      <div class="rung">
+        <span class="rung-num">01</span>
+        <h3>Structured peer-mentoring</h3>
+        <p>Regular small-group sessions with clear agendas, action commitments and accountability.</p>
+      </div>
+      <div class="rung">
+        <span class="rung-num">02</span>
+        <h3>Leadership training from <span class="ol-ls">OLS</span></h3>
+        <p>Skills development through the Open Life Science programme – facilitation, feedback, navigating power.</p>
+      </div>
+      <div class="rung">
+        <span class="rung-num">03</span>
+        <h3>Psychological safety &amp; guidance</h3>
+        <p>Supportive materials and a facilitated space where it's safe to speak about real obstacles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COHORT (with UK map showing cohort locations) ===== -->
+  <section class="cohort">
+    <h2 class="section-h">The cohort</h2>
+    <p class="cohort-lede"><strong>15 dRTPs</strong> from <strong>12 UK institutions</strong>. Yellow dots on the map = institutions with a current mentee.</p>
+
+    <div class="cohort-grid">
+      <!-- Left: stats + roles (left edge aligned with first rung above) -->
+      <div class="stats-col">
+        <h3>Who is in the cohort?</h3>
+        <div class="stat-tiles">
+          <div class="tile tile-1"><span class="tile-pct">60%</span><span class="tile-lbl">women</span></div>
+          <div class="tile tile-2"><span class="tile-pct">47%</span><span class="tile-lbl">minority ethnic background</span></div>
+          <div class="tile tile-3"><span class="tile-pct">27%</span><span class="tile-lbl">neurodivergent</span></div>
+          <div class="tile tile-4"><span class="tile-pct">⅓</span><span class="tile-lbl">lower socioeconomic background</span></div>
+          <div class="tile tile-5"><span class="tile-pct">20%</span><span class="tile-lbl">main carers</span></div>
+          <div class="tile tile-6"><span class="tile-pct">13%</span><span class="tile-lbl">LGBTQIA+</span></div>
+        </div>
+
+        <h3 class="roles-h">dRTP roles in the cohort</h3>
+        <ul class="roles">
+          <li>(Senior) Research Software Engineer</li>
+          <li>Research Computing Systems Engineer</li>
+          <li>Bioinformatics Technical Specialist</li>
+          <li>Senior Research IT Business Partner</li>
+          <li>Ecological Statistician</li>
+          <li>Research Data Technical Specialist</li>
+          <li>dRTP community coordinator</li>
+          <li>Assistant Professor</li>
+        </ul>
+      </div>
+
+      <!-- Right: UK map -->
+      <div class="map-col map-col-uk">
+        <div class="map-frame map-frame-uk">
+          <img src="assets/img/uk-pixel-map.svg" alt="Map of the UK with PeerLadder mentee institutions highlighted">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTERACTIVE: EU map (left) + leadership-barrier stickies (right) ===== -->
+  <section class="interactive">
+    <div class="interactive-grid interactive-grid-eu">
+
+      <!-- EU nodes map (interactive) -->
+      <div class="map-col">
+        <h2 class="section-h">Where in ELIXIR would you run it?</h2>
+        <p class="section-intro"><strong>Stick a dot</strong> on the country where you'd want to host a PeerLadder-style scheme through your ELIXIR Node.</p>
+        <div class="map-frame map-frame-eu">
+          <img src="assets/img/eu-nodes.svg" alt="Map of European ELIXIR Node countries">
+        </div>
+      </div>
+
+      <!-- What was your leadership barrier? (left empty — attendees pin physical post-its) -->
+      <div class="missing-col">
+        <h2 class="section-h">What was <em>your</em> leadership barrier?</h2>
+        <p class="section-intro">Imposter syndrome? No mentor? No time? Bias? Something else? Write it on a post-it and pin it here – anonymous.</p>
+        <div class="post-it-zone" aria-label="Empty area for physical post-it notes"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-funded">
+      <div class="funded-block">
+        <span class="funded-label">Funded by</span>
+        <img class="funded-logo" src="assets/img/logos/logo-discourse-negative.svg" alt="DisCouRSE">
+      </div>
+      <div class="funded-block">
+        <span class="funded-label">Supported by</span>
+        <img class="funded-logo" src="assets/img/logos/logo-elixir-uk-negative.svg" alt="ELIXIR-UK">
+      </div>
+    </div>
+    <div class="footer-partners">
+      <span class="funded-label">Partners</span>
+      <div class="partner-row">
+        <img class="partner-logo" src="assets/img/logos/logo-manchester-negative.svg" alt="University of Manchester">
+        <img class="partner-logo" src="assets/img/logos/logo-earlham-negative.svg" alt="Earlham Institute">
+        <img class="partner-logo" src="assets/img/logos/logo-ols-negative.svg" alt="OLS">
+      </div>
+    </div>
+    <div class="footer-qr">
+      <span class="funded-label">Scan</span>
+      <img class="qr-img" src="assets/img/qr-peerladder.svg" alt="QR to peerladder.elixiruknode.org">
+      <span class="qr-url">peerladder.elixiruknode.org</span>
+    </div>
+  </footer>
+
+</section>
+</div><!-- /.poster-stage -->
+
+</body>
+</html>
