@@ -314,7 +314,7 @@ html, body {
 /* Rungs stack vertically in the narrower right column */
 .rungs.rungs-stacked {
   grid-template-columns: 1fr;
-  gap: 6mm;
+  gap: 8.5mm;
 }
 
 /* ============== WHY IT MATTERS ============== */
@@ -414,6 +414,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 3mm;
+  min-height: 224mm;
 }
 .why-mechanism h3 {
   font-family: var(--font-display);
