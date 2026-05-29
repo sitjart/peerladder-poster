@@ -44,7 +44,7 @@
     <img class="brand-logo" src="assets/img/logos/peer-ladder-lavender.svg" alt="PeerLadder">
     <div class="header-text">
       <h1>PeerLadder</h1>
-      <p class="subtitle">A national peer-mentoring initiative supporting underrepresented dRTP leaders</p>
+      <p class="subtitle">A national peer-mentoring initiative supporting underrepresented dRTP aspiring leaders</p>
       <p class="authors">
         <strong>Saskia Lawson-Tovey</strong><sup>1</sup>,
         <strong>Xenia Perez-Sitja</strong><sup>2</sup>,
@@ -58,7 +58,7 @@
   <!-- ===== ELEAD CALLOUT BANNER ===== -->
   <aside class="elead-banner">
     <span class="elead-eyebrow">Inspired by</span>
-    <span class="elead-name">ELEAD</span>
+    <img class="elead-logo" src="assets/img/logos/logo-elead-horizontal.svg" alt="ELEAD">
     <span class="elead-tag">ELIXIR Leadership programme – the team behind PeerLadder are ELEAD alumni, current participants and co-leads.</span>
   </aside>
 
@@ -111,12 +111,16 @@
     </div>
   </section>
 
-  <!-- ===== WHY IT MATTERS ===== -->
-  <section class="why">
-    <h2 class="section-h">Why it matters</h2>
-    <p class="section-intro">Diverse teams outperform – <strong>but only when people feel safe enough to speak</strong>. PeerLadder is built on both findings.</p>
-    <div class="why-grid">
-      <article class="why-stat why-stat-lavender">
+  <!-- ===== WHY IT MATTERS  +  THE THREE RUNGS (side by side) ===== -->
+  <section class="why-ladder">
+   <div class="wl-grid">
+
+    <h2 class="section-h wl-why-h">Why it matters</h2>
+    <h2 class="section-h wl-rungs-h">The three rungs</h2>
+
+    <!-- Col 1: the two stats, stacked -->
+    <div class="why-stats-col">
+        <article class="why-stat why-stat-lavender">
         <span class="why-num">80%</span>
         <p>of senior leadership roles in research-adjacent fields are held by white men. Women hold just <strong>15%</strong> of managing-director roles globally.</p>
         <span class="why-cite">McKinsey &amp; Company (2023)</span>
@@ -126,19 +130,130 @@
         <p>more patent citations from engineering teams with higher diversity, and <strong>+19%</strong> more revenue – evidence that diverse teams drive research-technical innovation.</p>
         <span class="why-cite">Royal Academy of Engineering (2024) · BSA / APPG on Diversity &amp; Inclusion in STEM (2025)</span>
       </article>
-      <article class="why-mechanism">
-        <h3>The mechanism: <em>psychological safety</em></h3>
-        <p>Hiring people from underrepresented groups doesn't change outcomes on its own. They have to <strong>feel safe to speak</strong>, disagree, and admit uncertainty.</p>
-        <p>Amy Edmondson (Harvard Business School) calls this <em>psychological safety</em> – the variable that makes diversity work.</p>
-        <p class="why-pull">Google's <strong>Project Aristotle</strong> studied 180 teams and found psychological safety to be the <strong>#1 factor</strong> distinguishing high-performing teams.</p>
+      <article class="why-found">
+        <span class="found-eyebrow">The mechanism: <em>psychological safety</em></span>
+        <p class="found-quote">Diverse teams outperform – but only when people feel safe to speak up.</p>
+        <p class="found-sub">In the chart, teams with high psychological safety (yellow) climb as diversity rises. Without it (lavender), they stall.</p>
+        <span class="found-cite">Edmondson, HBR 2022 · Google Project Aristotle</span>
       </article>
-    </div>
-  </section>
+    </div><!-- /.why-stats-col -->
 
-  <!-- ===== THE LADDER (3 STEPS) ===== -->
-  <section class="ladder">
-    <h2 class="section-h">The three rungs</h2>
-    <div class="rungs">
+    <!-- Col 2: the plot -->
+    <article class="why-mechanism">
+        <figure class="psafety-fig">
+          <svg class="psafety-svg" viewBox="-70 -10 700 585" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter plot of team performance vs diversity, split by psychological safety">
+
+            <!-- LEGEND (single compact row) -->
+            <g font-family="Inter, sans-serif" font-weight="700" font-size="22">
+              <circle cx="40" cy="12" r="10" fill="#F5C842"/>
+              <text x="58" y="20" fill="#F0EEF9">With psychological safety</text>
+              <circle cx="392" cy="12" r="10" fill="#9688F2" fill-opacity="0.5"/>
+              <text x="410" y="20" fill="#F0EEF9" opacity="0.7">Without</text>
+            </g>
+
+            <!-- PLOT BACKGROUND -->
+            <rect x="30" y="40" width="520" height="465" fill="#041A16" stroke="#9688F2" stroke-opacity="0.18" rx="4"/>
+
+            <!-- TRENDLINES -->
+            <line x1="42.24" y1="203.82" x2="43.23" y2="203.66" stroke="#F5C842" stroke-miterlimit="10" stroke-width="3" fill="none"/>
+            <line x1="45.2"  y1="203.35" x2="48.17" y2="202.88" stroke="#F5C842" stroke-dasharray="2 2" stroke-miterlimit="10" stroke-width="3" fill="none"/>
+            <line x1="49.16" y1="202.72" x2="530.89" y2="126.01" stroke="#F5C842" stroke-dasharray="2 2 2 2" stroke-miterlimit="10" stroke-width="3" fill="none"/>
+            <line x1="531.88" y1="125.85" x2="532.86" y2="125.7" stroke="#F5C842" stroke-miterlimit="10" stroke-width="3" fill="none"/>
+            <line x1="45.47" y1="224.12" x2="532.86" y2="286.92" stroke="#9688F2" stroke-opacity="0.5" stroke-dasharray="2 2 2 2" stroke-miterlimit="10" stroke-width="3" fill="none"/>
+
+            <!-- DOTS: teams WITH high psychological safety -->
+            <g fill="#F5C842">
+              <circle cx="404.38" cy="65.23"  r="9.01"/>
+              <circle cx="505.71" cy="56.22"  r="9.01"/>
+              <circle cx="532.86" cy="96.38"  r="9.01"/>
+              <circle cx="438.92" cy="105.39" r="9.01"/>
+              <circle cx="478.78" cy="116.69" r="9.01"/>
+              <circle cx="358.06" cy="179.38" r="9.01"/>
+              <circle cx="370.74" cy="197.39" r="9.01"/>
+              <circle cx="491.18" cy="286.92" r="9.01"/>
+              <circle cx="221.80" cy="182.36" r="9.01"/>
+              <circle cx="42.24"  cy="188.38" r="9.01"/>
+            </g>
+
+            <!-- DOTS: teams without high psychological safety -->
+            <g fill="#9688F2" fill-opacity="0.5">
+              <circle cx="45.47"  cy="224.12" r="9.01"/>
+              <circle cx="45.47"  cy="264.53" r="9.01"/>
+              <circle cx="68.13"  cy="197.39" r="9.01"/>
+              <circle cx="68.13"  cy="206.40" r="9.01"/>
+              <circle cx="94.02"  cy="188.38" r="9.01"/>
+              <circle cx="94.02"  cy="197.39" r="9.01"/>
+              <circle cx="177.04" cy="182.36" r="9.01"/>
+              <circle cx="168.03" cy="207.74" r="9.01"/>
+              <circle cx="128.72" cy="233.13" r="9.01"/>
+              <circle cx="81.18"  cy="224.12" r="9.01"/>
+              <circle cx="42.24"  cy="322.66" r="9.01"/>
+              <circle cx="135.53" cy="191.36" r="9.01"/>
+              <circle cx="256.64" cy="191.36" r="9.01"/>
+              <circle cx="316.38" cy="155.75" r="9.01"/>
+              <circle cx="438.92" cy="58.06"  r="9.01"/>
+              <circle cx="451.79" cy="161.36" r="9.01"/>
+              <circle cx="505.71" cy="152.35" r="9.01"/>
+              <circle cx="473.45" cy="206.40" r="9.01"/>
+              <circle cx="395.37" cy="200.37" r="9.01"/>
+              <circle cx="420.00" cy="213.97" r="9.01"/>
+              <circle cx="304.49" cy="209.38" r="9.01"/>
+              <circle cx="358.06" cy="203.82" r="9.01"/>
+              <circle cx="432.68" cy="253.44" r="9.01"/>
+              <circle cx="177.04" cy="310.67" r="9.01"/>
+              <circle cx="238.24" cy="292.90" r="9.01"/>
+              <circle cx="260.06" cy="273.54" r="9.01"/>
+              <circle cx="285.95" cy="280.52" r="9.01"/>
+              <circle cx="256.64" cy="304.64" r="9.01"/>
+              <circle cx="265.65" cy="307.22" r="9.01"/>
+              <circle cx="234.17" cy="331.67" r="9.01"/>
+              <circle cx="307.37" cy="325.24" r="9.01"/>
+              <circle cx="370.74" cy="292.90" r="9.01"/>
+              <circle cx="386.36" cy="283.89" r="9.01"/>
+              <circle cx="388.75" cy="301.91" r="9.01"/>
+              <circle cx="404.38" cy="295.64" r="9.01"/>
+              <circle cx="361.73" cy="340.68" r="9.01"/>
+              <circle cx="379.75" cy="349.68" r="9.01"/>
+              <circle cx="411.00" cy="321.91" r="9.01"/>
+              <circle cx="420.00" cy="331.67" r="9.01"/>
+              <circle cx="438.02" cy="316.23" r="9.01"/>
+              <circle cx="473.45" cy="325.24" r="9.01"/>
+              <circle cx="505.71" cy="301.66" r="9.01"/>
+              <circle cx="505.71" cy="343.25" r="9.01"/>
+              <circle cx="438.02" cy="384.84" r="9.01"/>
+              <circle cx="404.38" cy="384.84" r="9.01"/>
+              <circle cx="380.58" cy="397.46" r="9.01"/>
+              <circle cx="432.68" cy="474.05" r="9.01"/>
+              <circle cx="491.18" cy="485.79" r="9.01"/>
+              <circle cx="508.89" cy="477.53" r="9.01"/>
+              <circle cx="514.72" cy="415.47" r="9.01"/>
+              <circle cx="491.18" cy="421.45" r="9.01"/>
+            </g>
+
+            <!-- AXES with arrows -->
+            <line x1="30" y1="505" x2="580" y2="505" stroke="#9688F2" stroke-opacity="0.45" stroke-width="2"/>
+            <line x1="30" y1="20"  x2="30"  y2="505" stroke="#9688F2" stroke-opacity="0.45" stroke-width="2"/>
+            <polygon points="580,505 568,499 568,511" fill="#9688F2" fill-opacity="0.45"/>
+            <polygon points="30,20 24,32 36,32" fill="#9688F2" fill-opacity="0.45"/>
+
+            <!-- AXIS END LABELS -->
+            <g font-family="Inter, sans-serif" font-weight="700" font-size="20" fill="#C9C7D4">
+              <text x="42"  y="540">LOW</text>
+              <text x="566" y="540" text-anchor="end">HIGH</text>
+              <text x="18"  y="503" text-anchor="end">LOW</text>
+              <text x="18"  y="30"  text-anchor="end">HIGH</text>
+            </g>
+
+            <!-- AXIS TITLES -->
+            <text x="305" y="558" font-family="Inter, sans-serif" font-weight="700" font-size="26" fill="#F0EEF9" text-anchor="middle" letter-spacing="4">DIVERSITY</text>
+            <text x="-50" y="265" font-family="Inter, sans-serif" font-weight="700" font-size="26" fill="#F0EEF9" text-anchor="middle" letter-spacing="4" transform="rotate(-90 -50 265)">PERFORMANCE</text>
+          </svg>
+        </figure>
+    </article>
+
+    <!-- Col 3: the three rungs -->
+    <div class="ladder-col">
+      <div class="rungs rungs-stacked">
       <div class="rung">
         <span class="rung-num">01</span>
         <h3>Structured peer-mentoring</h3>
@@ -147,14 +262,17 @@
       <div class="rung">
         <span class="rung-num">02</span>
         <h3>Leadership training from <span class="ol-ls">OLS</span></h3>
-        <p>Skills development through the Open Life Science programme – facilitation, feedback, navigating power.</p>
+        <p>Skills development through the OLS programme – facilitation, feedback, psychological safety.</p>
       </div>
       <div class="rung">
         <span class="rung-num">03</span>
         <h3>Psychological safety &amp; guidance</h3>
         <p>Supportive materials and a facilitated space where it's safe to speak about real obstacles.</p>
       </div>
-    </div>
+      </div><!-- /.rungs -->
+    </div><!-- /.ladder-col -->
+
+   </div><!-- /.wl-grid -->
   </section>
 
   <!-- ===== COHORT (with UK map showing cohort locations) ===== -->
@@ -203,17 +321,17 @@
 
       <!-- EU nodes map (interactive) -->
       <div class="map-col">
-        <h2 class="section-h">Where in ELIXIR would you run it?</h2>
-        <p class="section-intro"><strong>Stick a dot</strong> on the country where you'd want to host a PeerLadder-style scheme through your ELIXIR Node.</p>
+        <h2 class="section-h">Where would you run it if you could?</h2>
+        <p class="section-intro"><strong>Stick a dot</strong> on the location where you'd want to host a PeerLadder-style scheme.</p>
         <div class="map-frame map-frame-eu">
-          <img src="assets/img/eu-nodes.svg" alt="Map of European ELIXIR Node countries">
+          <img src="assets/img/worldUltra-pixels.svg" alt="Pixel map of the world">
         </div>
       </div>
 
       <!-- What was your leadership barrier? (left empty — attendees pin physical post-its) -->
       <div class="missing-col">
         <h2 class="section-h">What was <em>your</em> leadership barrier?</h2>
-        <p class="section-intro">Imposter syndrome? No mentor? No time? Bias? Something else? Write it on a post-it and pin it here – anonymous.</p>
+        <p class="section-intro">Imposter syndrome? No mentor? No time? Bias? Something else? Write it on a post-it and pin it here.</p>
         <div class="post-it-zone" aria-label="Empty area for physical post-it notes"></div>
       </div>
     </div>
@@ -229,6 +347,10 @@
       <div class="funded-block">
         <span class="funded-label">Supported by</span>
         <img class="funded-logo" src="assets/img/logos/logo-elixir-uk-negative.svg" alt="ELIXIR-UK">
+      </div>
+      <div class="funded-block">
+        <span class="funded-label">Inspired by</span>
+        <img class="funded-logo" src="assets/img/logos/logo-elead-horizontal.svg" alt="ELEAD">
       </div>
     </div>
     <div class="footer-partners">

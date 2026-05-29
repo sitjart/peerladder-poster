@@ -56,7 +56,7 @@ html, body {
   font-size: 20pt;
   line-height: 1.4;
   overflow: hidden;
-  padding: 14mm 18mm 10mm;
+  padding: 20mm 26mm 16mm;
   gap: 8mm;
 }
 
@@ -117,7 +117,7 @@ html, body {
 /* ============== ELEAD CALLOUT BANNER ============== */
 .elead-banner {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 8mm;
   padding: 8mm 16mm;
   background: var(--accent);
@@ -133,19 +133,20 @@ html, body {
   letter-spacing: -0.3pt;
   text-transform: lowercase;
 }
-.elead-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 56pt;
-  line-height: 1;
-  color: var(--text-on-accent);
-  letter-spacing: 2pt;
+.elead-logo {
+  height: 26mm;
+  width: auto;
+  flex-shrink: 0;
+  padding-top: 5px;
+  /* Logo art is white; darken it so it reads on the yellow banner. */
+  filter: brightness(0);
 }
 .elead-tag {
   flex: 1;
   text-align: right;
   font-family: var(--font-body);
-  font-size: 18pt;
+  font-weight: 700;
+  font-size: 20pt;
   color: var(--text-on-accent);
   line-height: 1.3;
   opacity: 0.8;
@@ -287,6 +288,35 @@ html, body {
 }
 .section-intro strong { color: var(--text); }
 
+/* ============== WHY + LADDER (side by side) ============== */
+.why-ladder { padding: 2mm 0; margin-top: 10mm; }
+/* One flat grid: [stats | plot | rungs] under a heading row.
+   Three balanced columns keep the whole band as short as possible. */
+.wl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.065fr 1.05fr;
+  grid-template-rows: auto auto;
+  gap: 4mm 12mm;
+  align-items: start;
+}
+.wl-why-h   { grid-column: 1 / 3; grid-row: 1; margin: 0; }
+.wl-rungs-h { grid-column: 3;     grid-row: 1; margin: 0; }
+.why-stats-col { grid-column: 1; grid-row: 2; align-self: stretch; }
+.why-mechanism { grid-column: 2; grid-row: 2; }
+.ladder-col    { grid-column: 3; grid-row: 2; }
+.why-stats-col,
+.ladder-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  min-width: 0;
+}
+/* Rungs stack vertically in the narrower right column */
+.rungs.rungs-stacked {
+  grid-template-columns: 1fr;
+  gap: 6mm;
+}
+
 /* ============== WHY IT MATTERS ============== */
 .why { padding: 2mm 0; }
 .why-grid {
@@ -302,14 +332,60 @@ html, body {
   flex-direction: column;
   gap: 3mm;
 }
+/* Third box in the stats column: a theory callout that fills the leftover height */
+.why-found {
+  flex: 1;
+  background: var(--bg-elevated);
+  border: 0.4mm solid var(--border);
+  border-left: 3mm solid var(--brand);
+  border-radius: 4mm;
+  padding: 5mm 6mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2mm;
+}
+.found-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15pt;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.found-quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 19pt;
+  line-height: 1.2;
+  color: var(--text);
+}
+.found-quote strong { color: var(--accent); }
+.found-eyebrow em { font-style: normal; color: var(--accent); }
+.found-sub {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20pt;
+  line-height: 1.3;
+  color: var(--text-muted);
+}
+.found-cite {
+  font-family: var(--font-body);
+  font-size: 13pt;
+  letter-spacing: 0.4pt;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
 .why-stat-lavender { background: var(--brand); color: var(--text-on-accent); }
 .why-stat-yellow   { background: var(--accent); color: var(--text-on-accent); }
 .why-num {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 92pt;
+  font-size: 64pt;
   line-height: 0.95;
-  letter-spacing: -2.5pt;
+  letter-spacing: -2pt;
   color: var(--text-on-accent);
 }
 .why-stat p {
@@ -366,6 +442,36 @@ html, body {
   font-size: 16pt !important;
 }
 .why-pull strong { color: var(--accent); }
+/* Psychological-safety scatter plot (adapted from the ELEAD AHM poster) */
+.psafety-fig {
+  margin: 1mm 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+  flex: 1;
+}
+.psafety-svg {
+  width: 100%;
+  max-width: 100%;   /* fills its narrow column; column width controls size */
+  height: auto;
+  align-self: center;
+  display: block;
+}
+.psafety-cap {
+  font-family: var(--font-body);
+  font-size: 15pt;
+  line-height: 1.35;
+  color: var(--text);
+}
+.psafety-cap strong { color: var(--accent); }
+.psafety-src {
+  display: block;
+  margin-top: 2mm;
+  font-size: 13pt;
+  letter-spacing: 0.3pt;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
 
 /* ============== THE LADDER (3 RUNGS) ============== */
 .ladder { padding: 4mm 0; }
@@ -449,6 +555,9 @@ html, body {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8mm;
 }
 .roles li {
   position: relative;
@@ -469,7 +578,9 @@ html, body {
   color: var(--brand);
   font-weight: 700;
 }
-.roles li:last-child { border-bottom: none; }
+/* Two columns, 8 items → drop the border from the last item in each column */
+.roles li:nth-last-child(1),
+.roles li:nth-last-child(2) { border-bottom: none; }
 
 /* Stat tiles – compact 3×2 grid of equal-size blocks, alternating colours */
 .stat-tiles {
@@ -597,7 +708,7 @@ html, body {
 .missing-col { display: flex; flex-direction: column; }
 .post-it-zone {
   flex: 1;
-  min-height: 150mm;
+  min-height: 200mm;
   margin-top: 2mm;
   border: 1mm dashed var(--border-strong);
   border-radius: 4mm;
@@ -616,8 +727,9 @@ html, body {
 /* Footer: [funded + supported] | partners (center) | QR (right) */
 .footer-funded {
   display: flex;
-  flex-direction: column;
-  gap: 6mm;
+  flex-direction: row;
+  align-items: center;
+  gap: 12mm;
   flex-shrink: 0;
 }
 .funded-block {
